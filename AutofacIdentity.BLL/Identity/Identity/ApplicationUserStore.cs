@@ -1,7 +1,6 @@
-﻿using AutofacIdentity.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace AutofacIdentity.Identity
+namespace AutofacIdentity.BLL.Identity.Identity
 {
     public class ApplicationUserStore : UserStore<ApplicationUser>
     {

@@ -2,7 +2,8 @@
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
-using AutofacIdentity.Identity;
+using AutofacIdentity.BLL.Identity;
+using AutofacIdentity.BLL.Identity.Identity;
 using AutofacIdentity.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace AutofacIdentity.Models
+namespace AutofacIdentity.BLL.Identity
 {
     public class ApplicationUser : IdentityUser
     {

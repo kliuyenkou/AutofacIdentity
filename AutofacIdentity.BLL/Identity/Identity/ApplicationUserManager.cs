@@ -1,12 +1,8 @@
-﻿using System;
-using AutofacIdentity.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
 
-namespace AutofacIdentity.Identity
+namespace AutofacIdentity.BLL.Identity.Identity
 {
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
