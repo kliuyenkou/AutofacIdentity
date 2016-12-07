@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using AutofacIdentity.DAL.Identity;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.DataProtection;
 
 namespace AutofacIdentity.BLL.Identity
 {
-    public class ApplicationUserManager : UserManager<ApplicationUser>
+    public class ApplicationUserManager : UserManager<ApplicationUser>, IApplicationUserManager
     {
         public ApplicationUserManager(IUserStore<ApplicationUser> store, IDataProtectionProvider dataProtectionProvider)
             : base(store)

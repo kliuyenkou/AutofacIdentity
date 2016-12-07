@@ -1,11 +1,10 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using AutofacIdentity.DAL.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 
 namespace AutofacIdentity.BLL.Identity
 {
-    public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
+    public class ApplicationSignInManager : SignInManager<ApplicationUser, string>, IApplicationSignInManager
     {
         public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
             : base(userManager, authenticationManager)

@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using AutofacIdentity.BLL.Autofac;
 using AutofacIdentity.BLL.Identity;
 using AutofacIdentity.Models;
 using Microsoft.AspNet.Identity;
@@ -25,11 +26,13 @@ namespace AutofacIdentity
         {
             var builder = new ContainerBuilder();
 
+            // REGISTER MODULS
+            builder.RegisterModule(new BLLModule());
+
             // REGISTER DEPENDENCIES
-            builder.RegisterType<ApplicationDbContext>().AsSelf().InstancePerRequest();
-            builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
             builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
             builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
+            //builder.RegisterType<ApplicationUserManager>().As<IApplicationUserManager>().InstancePerRequest();
             builder.Register<IAuthenticationManager>(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
             builder.Register<IDataProtectionProvider>(c => app.GetDataProtectionProvider()).InstancePerRequest();
 

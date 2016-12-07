@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using AutofacIdentity.DAL.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AutofacIdentity.BLL.Identity
 {

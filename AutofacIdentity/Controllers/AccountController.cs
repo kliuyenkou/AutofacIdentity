@@ -16,18 +16,18 @@ namespace AutofacIdentity.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly ApplicationUserManager _userManager;
-        private readonly ApplicationSignInManager _signInManager;
+        private readonly IApplicationUserManager _userManager;
+        private readonly IApplicationSignInManager _signInManager;
         private readonly IAuthenticationManager _authManager;
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IAuthenticationManager authManager)
+        public AccountController(IApplicationUserManager userManager, IApplicationSignInManager signInManager, IAuthenticationManager authManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _authManager = authManager;
         }
 
-        public ApplicationSignInManager SignInManager
+        public IApplicationSignInManager SignInManager
         {
             get
             {
@@ -35,7 +35,7 @@ namespace AutofacIdentity.Controllers
             }
         }
 
-        public ApplicationUserManager UserManager
+        public IApplicationUserManager UserManager
         {
             get
             {
