@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using AutofacIdentity.DAL.Identity;
 using Microsoft.AspNet.Identity;
 
-namespace AutofacIdentity.BLL.Identity
+namespace AutofacIdentity.DAL.Interfaces
 {
-    public interface IApplicationUserManager
+    public interface IUserManager<TUser> where TUser : class, IUser<string>
     {
         void Dispose();
-        Task<ClaimsIdentity> CreateIdentityAsync(ApplicationUser user, string authenticationType);
-        Task<IdentityResult> CreateAsync(ApplicationUser user);
-        Task<IdentityResult> UpdateAsync(ApplicationUser user);
-        Task<IdentityResult> DeleteAsync(ApplicationUser user);
-        Task<ApplicationUser> FindByIdAsync(string userId);
-        Task<ApplicationUser> FindByNameAsync(string userName);
-        Task<IdentityResult> CreateAsync(ApplicationUser user, string password);
-        Task<IdentityResult> CreateByEmailAsync(string email, string password);
-        Task<ApplicationUser> FindAsync(string userName, string password);
-        Task<bool> CheckPasswordAsync(ApplicationUser user, string password);
+        Task<ClaimsIdentity> CreateIdentityAsync(TUser user, string authenticationType);
+        Task<IdentityResult> CreateAsync(TUser user);
+        Task<IdentityResult> UpdateAsync(TUser user);
+        Task<IdentityResult> DeleteAsync(TUser user);
+        Task<TUser> FindByIdAsync(string userId);
+        Task<TUser> FindByNameAsync(string userName);
+        Task<IdentityResult> CreateAsync(TUser user, string password);
+        Task<TUser> FindAsync(string userName, string password);
+        Task<bool> CheckPasswordAsync(TUser user, string password);
         Task<bool> HasPasswordAsync(string userId);
         Task<IdentityResult> AddPasswordAsync(string userId, string password);
         Task<IdentityResult> ChangePasswordAsync(string userId, string currentPassword, string newPassword);
@@ -29,7 +27,7 @@ namespace AutofacIdentity.BLL.Identity
         Task<IdentityResult> UpdateSecurityStampAsync(string userId);
         Task<string> GeneratePasswordResetTokenAsync(string userId);
         Task<IdentityResult> ResetPasswordAsync(string userId, string token, string newPassword);
-        Task<ApplicationUser> FindAsync(UserLoginInfo login);
+        Task<TUser> FindAsync(UserLoginInfo login);
         Task<IdentityResult> RemoveLoginAsync(string userId, UserLoginInfo login);
         Task<IdentityResult> AddLoginAsync(string userId, UserLoginInfo login);
         Task<IList<UserLoginInfo>> GetLoginsAsync(string userId);
@@ -44,7 +42,7 @@ namespace AutofacIdentity.BLL.Identity
         Task<bool> IsInRoleAsync(string userId, string role);
         Task<string> GetEmailAsync(string userId);
         Task<IdentityResult> SetEmailAsync(string userId, string email);
-        Task<ApplicationUser> FindByEmailAsync(string email);
+        Task<TUser> FindByEmailAsync(string email);
         Task<string> GenerateEmailConfirmationTokenAsync(string userId);
         Task<IdentityResult> ConfirmEmailAsync(string userId, string token);
         Task<bool> IsEmailConfirmedAsync(string userId);
@@ -56,7 +54,7 @@ namespace AutofacIdentity.BLL.Identity
         Task<bool> VerifyChangePhoneNumberTokenAsync(string userId, string token, string phoneNumber);
         Task<bool> VerifyUserTokenAsync(string userId, string purpose, string token);
         Task<string> GenerateUserTokenAsync(string purpose, string userId);
-        void RegisterTwoFactorProvider(string twoFactorProvider, IUserTokenProvider<ApplicationUser, string> provider);
+        void RegisterTwoFactorProvider(string twoFactorProvider, IUserTokenProvider<TUser, string> provider);
         Task<IList<string>> GetValidTwoFactorProvidersAsync(string userId);
         Task<bool> VerifyTwoFactorTokenAsync(string userId, string twoFactorProvider, string token);
         Task<string> GenerateTwoFactorTokenAsync(string userId, string twoFactorProvider);
@@ -74,12 +72,12 @@ namespace AutofacIdentity.BLL.Identity
         Task<IdentityResult> ResetAccessFailedCountAsync(string userId);
         Task<int> GetAccessFailedCountAsync(string userId);
         IPasswordHasher PasswordHasher { get; set; }
-        IIdentityValidator<ApplicationUser> UserValidator { get; set; }
+        IIdentityValidator<TUser> UserValidator { get; set; }
         IIdentityValidator<string> PasswordValidator { get; set; }
-        IClaimsIdentityFactory<ApplicationUser, string> ClaimsIdentityFactory { get; set; }
+        IClaimsIdentityFactory<TUser, string> ClaimsIdentityFactory { get; set; }
         IIdentityMessageService EmailService { get; set; }
         IIdentityMessageService SmsService { get; set; }
-        IUserTokenProvider<ApplicationUser, string> UserTokenProvider { get; set; }
+        IUserTokenProvider<TUser, string> UserTokenProvider { get; set; }
         bool UserLockoutEnabledByDefault { get; set; }
         int MaxFailedAccessAttemptsBeforeLockout { get; set; }
         TimeSpan DefaultAccountLockoutTimeSpan { get; set; }
@@ -93,7 +91,7 @@ namespace AutofacIdentity.BLL.Identity
         bool SupportsUserClaim { get; }
         bool SupportsUserLockout { get; }
         bool SupportsQueryableUsers { get; }
-        IQueryable<ApplicationUser> Users { get; }
-        IDictionary<string, IUserTokenProvider<ApplicationUser, string>> TwoFactorProviders { get; }
+        IQueryable<TUser> Users { get; }
+        IDictionary<string, IUserTokenProvider<TUser, string>> TwoFactorProviders { get; }
     }
 }

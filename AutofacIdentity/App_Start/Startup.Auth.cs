@@ -1,5 +1,4 @@
 ﻿using System;
-using AutofacIdentity.BLL.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

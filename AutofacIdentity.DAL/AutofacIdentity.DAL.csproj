@@ -57,18 +57,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Project.cs" />
     <Compile Include="Identity\ApplicationDbContext.cs" />
-    <Compile Include="Identity\ApplicationUser.cs" />
+    <Compile Include="Entities\ApplicationUser.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Interfaces\IProjectRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUserManager.cs" />
+    <Compile Include="Migrations\201612071420331_AddProject.cs" />
+    <Compile Include="Migrations\201612071420331_AddProject.Designer.cs">
+      <DependentUpon>201612071420331_AddProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612071445079_EditProject.cs" />
+    <Compile Include="Migrations\201612071445079_EditProject.Designer.cs">
+      <DependentUpon>201612071445079_EditProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612071539124_AddFieldNameToApplicationUser.cs" />
+    <Compile Include="Migrations\201612071539124_AddFieldNameToApplicationUser.Designer.cs">
+      <DependentUpon>201612071539124_AddFieldNameToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\ProjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
+    <EmbeddedResource Include="Migrations\201612071420331_AddProject.resx">
+      <DependentUpon>201612071420331_AddProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071445079_EditProject.resx">
+      <DependentUpon>201612071445079_EditProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071539124_AddFieldNameToApplicationUser.resx">
+      <DependentUpon>201612071539124_AddFieldNameToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
