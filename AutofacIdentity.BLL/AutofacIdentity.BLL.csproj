@@ -86,12 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Identity\ApplicationUser.cs" />
-    <Compile Include="Identity\Identity\ApplicationDbContext.cs" />
-    <Compile Include="Identity\Identity\ApplicationSignInManager.cs" />
-    <Compile Include="Identity\Identity\ApplicationUserManager.cs" />
-    <Compile Include="Identity\Identity\ApplicationUserStore.cs" />
-    <Compile Include="Identity\Identity\EmailService.cs" />
-    <Compile Include="Identity\Identity\SmsService.cs" />
+    <Compile Include="Identity\ApplicationDbContext.cs" />
+    <Compile Include="Identity\ApplicationSignInManager.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Identity\ApplicationUserStore.cs" />
+    <Compile Include="Identity\EmailService.cs" />
+    <Compile Include="Identity\SmsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

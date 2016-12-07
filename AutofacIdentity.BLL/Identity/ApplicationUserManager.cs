@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.DataProtection;
 
-namespace AutofacIdentity.BLL.Identity.Identity
+namespace AutofacIdentity.BLL.Identity
 {
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {

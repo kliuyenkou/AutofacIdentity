@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 
-namespace AutofacIdentity.BLL.Identity.Identity
+namespace AutofacIdentity.BLL.Identity
 {
     public class SmsService : IIdentityMessageService
     {
