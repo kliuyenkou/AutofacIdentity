@@ -30,7 +30,6 @@ namespace AutofacIdentity
             builder.RegisterModule(new BLLModule());
 
             // REGISTER DEPENDENCIES
-            //builder.RegisterType<ApplicationUserManager>().As<IApplicationUserManager>().InstancePerRequest();
             builder.Register<IAuthenticationManager>(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
             builder.Register<IDataProtectionProvider>(c => app.GetDataProtectionProvider()).InstancePerRequest();
 
