@@ -1,4 +1,5 @@
-﻿using AutofacIdentity.DAL.Identity;
+﻿using System.Threading.Tasks;
+using AutofacIdentity.DAL.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.DataProtection;
@@ -49,5 +50,10 @@ namespace AutofacIdentity.BLL.Identity
 
         }
 
+        public async Task<IdentityResult> CreateByEmailAsync(string email, string password)
+        {
+            var user = new ApplicationUser { UserName = email, Email = email };
+            return await CreateAsync(user, password);
+        }
     }
 }

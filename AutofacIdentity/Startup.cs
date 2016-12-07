@@ -30,8 +30,6 @@ namespace AutofacIdentity
             builder.RegisterModule(new BLLModule());
 
             // REGISTER DEPENDENCIES
-            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
-            builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
             //builder.RegisterType<ApplicationUserManager>().As<IApplicationUserManager>().InstancePerRequest();
             builder.Register<IAuthenticationManager>(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
             builder.Register<IDataProtectionProvider>(c => app.GetDataProtectionProvider()).InstancePerRequest();
@@ -47,7 +45,7 @@ namespace AutofacIdentity
 
             // REGISTER WITH OWIN
             app.UseAutofacMiddleware(container);
-            app.UseAutofacMvc();
+            //app.UseAutofacMvc();
         }
     }
 }

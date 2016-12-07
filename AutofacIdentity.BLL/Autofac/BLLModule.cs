@@ -16,6 +16,10 @@ namespace AutofacIdentity.BLL.Autofac
         {
             builder.RegisterType<ApplicationDbContext>().AsSelf().InstancePerRequest();
             builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
+            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ApplicationUserManager>().As<IApplicationUserManager>().InstancePerRequest();
+            builder.RegisterType<ApplicationSignInManager>().As<IApplicationSignInManager>().InstancePerRequest();
 
         }
 

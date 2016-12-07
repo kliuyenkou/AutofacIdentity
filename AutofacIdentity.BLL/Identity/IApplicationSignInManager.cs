@@ -13,6 +13,8 @@ namespace AutofacIdentity.BLL.Identity
         string ConvertIdToString(string id);
         string ConvertIdFromString(string id);
         Task SignInAsync(ApplicationUser user, bool isPersistent, bool rememberBrowser);
+        //Task SignInByEmailAsync(string email, string password, bool isPersistent, bool rememberBrowser);
+        Task<IdentityResult> RegisterUser(string email, string password, bool isPersistent, bool rememberBrowser);
         Task<bool> SendTwoFactorCodeAsync(string provider);
         Task<string> GetVerifiedUserIdAsync();
         Task<bool> HasBeenVerifiedAsync();

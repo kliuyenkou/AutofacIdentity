@@ -18,6 +18,7 @@ namespace AutofacIdentity.BLL.Identity
         Task<ApplicationUser> FindByIdAsync(string userId);
         Task<ApplicationUser> FindByNameAsync(string userName);
         Task<IdentityResult> CreateAsync(ApplicationUser user, string password);
+        Task<IdentityResult> CreateByEmailAsync(string email, string password);
         Task<ApplicationUser> FindAsync(string userName, string password);
         Task<bool> CheckPasswordAsync(ApplicationUser user, string password);
         Task<bool> HasPasswordAsync(string userId);
